@@ -13,7 +13,6 @@ while True:
     numberOfImages = int(input("\033[36;1mNumber of images to generate: \x1b[0m"))
     while True:
         # There are 3 possible sizes you can generate images for, 256x256, 512x512, 1024x1024. 
-        # See https://platform.openai.com/docs/guides/images/generations for more info.
         sizeOption = int(input("\033[36;1mSizes:\x1b[0m \033[34m\n1.256x256 \n2.512x512 \n3.1024x1024\nPick a size (1, 2 or 3): \x1b[0m"))
         if sizeOption == 1:
             res = "256x256"
@@ -27,6 +26,8 @@ while True:
         else:
             print("\033[31;1mIncorrect option entered.\x1b[0m")
     
+    # Using openai API to generate a response.
+    # See https://platform.openai.com/docs/guides/images/usage for more info.
     response = openai.Image.create(
       prompt=prompt,
       n=numberOfImages,
